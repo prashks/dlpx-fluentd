@@ -13,9 +13,9 @@ else
   install_dir "#{default_root}/#{name}"
 end
 
+build_version   "3.4.0"
+build_iteration 0
 # Custom Delphix version & revision
-# build_version   "3.3.0"
-# build_iteration 1
 pkg_ver = ENV["PACKAGE_VERSION"]
 pkg_rev = ENV["PACKAGE_REVISION"]
 build_version "#{pkg_ver}"
@@ -29,7 +29,7 @@ override :zlib, :version => '1.2.11'
 override :jemalloc, :version => '4.5.0'
 override :rubygems, :version => '2.6.14'
 override :postgresql, :version => '9.6.9'
-override :fluentd, :version => '5b80dd0d6256784963fe7b01181450268b481eb9' # v1.3.3
+override :fluentd, :version => '2903f22d7b6485a97b47c4386ab6c6e86d269a15' # v1.4.2
 
 # td-agent dependencies/components
 dependency "td-agent"
