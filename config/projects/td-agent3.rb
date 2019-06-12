@@ -3,9 +3,12 @@ require 'fileutils'
 require 'rubygems'
 
 name "td-agent"
-maintainer "Treasure Data, Inc"
-homepage "http://treasuredata.com"
-description "Treasure Agent: A data collector for Treasure Data"
+#maintainer "Treasure Data, Inc"
+#homepage "http://treasuredata.com"
+#description "Treasure Agent: A data collector for Treasure Data"
+maintainer "Delphix Engineering <eng@delphix.com>"
+homepage "https://www.delphix.com"
+description "Data pipeline for Insight"
 
 if windows?
   install_dir "#{default_root}/opt/#{name}"
@@ -32,18 +35,21 @@ override :postgresql, :version => '9.6.9'
 override :fluentd, :version => '2903f22d7b6485a97b47c4386ab6c6e86d269a15' # v1.4.2
 
 # td-agent dependencies/components
-dependency "td-agent"
-dependency "td-agent-files"
-# comment below two, we don't need them
+#dependency "td-agent"
+#dependency "td-agent-files"
 #dependency "td"
 #dependency "td-agent-ui" # fluentd-ui doesn't work with ruby 2.4 because some gems depend on json 1.8
-dependency "td-agent-cleanup"
+#dependency "td-agent-cleanup"
+
+# Use core td-agent and custom Delphix ones below
+dependency "td-agent"
+dependency "delphix-fluentd-files"
+dependency "delphix-fluentd-cleanup"
+# Add Delphix custom splunk-hec plugin
+dependency "splunk-hec"
 
 # version manifest file
 dependency "version-manifest"
-
-# Add Delphix custom splunk-hec plugin
-dependency "splunk-hec"
 
 case ohai["os"]
 when "linux"
