@@ -140,7 +140,7 @@ GEM
     iostruct (0.0.4)
     ipaddress (0.8.3)
     iso8601 (0.9.1)
-    jmespath (1.4.0)
+    jmespath (1.6.1)
     json (2.1.0)
     kitchen-vagrant (0.21.1)
       test-kitchen (~> 1.4)
